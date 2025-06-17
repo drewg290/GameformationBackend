@@ -11,7 +11,7 @@ import cors from "cors";
 import morgan from "morgan";
 
 app.use(cors({ origin: process.env.CORS_ORIGIN ?? /localhost/ }));
-
+app.use(express.json());
 app.use(morgan("dev"));
 
 app.use(express.json());

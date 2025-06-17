@@ -12,7 +12,7 @@ router.route("/:game_id").get(async (req, res) => {
 });
 
 router
-  .route("/:game_id")
+  .route("/")
   .post(
     requireBody(["title", "content", "rating", "game_id"]),
     async (req, res) => {

@@ -1,7 +1,7 @@
 import db from "#db/client";
-import { createUser } from "#db/queries/users";
 import { createGame } from "#db/queries/games";
 import { createReview } from "#db/queries/reviews";
+import { createUser } from "#db/queries/users";
 
 await db.connect();
 await seed();

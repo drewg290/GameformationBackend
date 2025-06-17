@@ -1,6 +1,5 @@
 import db from "#db/client";
 
-
 export async function createReview(title, content, rating, game_id) {
   const sql = `
   INSERT INTO reviews
@@ -23,6 +22,6 @@ export async function getReviews() {
 }
 export async function getReviewsByGameId(game_id) {
   const sql = `SELECT * FROM reviews WHERE game_id = $1`;
-  const { rows } = await db.query(sql, [game_id]); 
-  return rows;  
+  const { rows } = await db.query(sql, [game_id]);
+  return rows;
 }
