@@ -1,6 +1,5 @@
 import db from "#db/client";
 
-
 export async function createGame(title, description) {
   const sql = `
   INSERT INTO games

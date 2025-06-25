@@ -17,7 +17,14 @@ router
     requireBody(["title", "content", "rating", "game_id"]),
     async (req, res) => {
       const { title, content, rating, game_id } = req.body;
-      const review = await createReview(title, content, rating, game_id);
+      const user_id = req.user.id;
+      const review = await createReview(
+        title,
+        content,
+        rating,
+        game_id,
+        user_id
+      );
 
       res.status(201).send(review);
     }
