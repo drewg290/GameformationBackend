@@ -1,6 +1,6 @@
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS games;
-DROP TABLE IF EXISTS reviews;
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS games CASCADE;
+DROP TABLE IF EXISTS reviews CASCADE;
 
 CREATE TABLE users (
   id serial PRIMARY KEY,
@@ -16,12 +16,10 @@ CREATE TABLE games (
 
 CREATE TABLE reviews (
   id serial PRIMARY KEY,
-    game_id INT NOT NULL,
-    title text NOT NULL UNIQUE,
-    content text NOT NULL UNIQUE,
-    rating INT NOT NULL CHECK (rating >= 1 AND rating <= 5),
-
- FOREIGN KEY (game_id) REFERENCES games(id) 
-
+  game_id integer NOT NULL REFERENCES games(id),
+  user_id integer NOT NULL REFERENCES users(id),  
+  title text NOT NULL,
+  content text NOT NULL,
+  rating integer NOT NULL CHECK (rating >= 1 AND rating <= 5)
 );
 

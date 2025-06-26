@@ -13,12 +13,10 @@ async function seed() {
   await db.query("TRUNCATE TABLE games RESTART IDENTITY CASCADE");
   await db.query("TRUNCATE TABLE reviews RESTART IDENTITY CASCADE");
 
-  // Create users
   await createUser("foo", "bar");
   await createUser("gamer123", "password123");
   await createUser("reviewMaster", "securePass!");
 
-  // Create games
   await createGame(
     "The Witcher 3: Wild Hunt",
     "An open-world RPG following Geralt of Rivia as he searches for his adopted daughter in a war-torn fantasy world."
@@ -79,18 +77,19 @@ async function seed() {
     "An isometric RPG featuring unparalleled freedom of choice in a richly detailed urban setting."
   );
 
-  // Create reviews
   await createReview(
     "Masterpiece of Gaming",
     "One of the best RPGs I've ever played with incredible depth and storytelling.",
     "5",
-    "1"
+    "1",
+    "2"
   );
 
   await createReview(
     "Good but overrated",
     "While the game is beautiful, I found the controls clunky at times.",
     "4",
+    "2",
     "2"
   );
 
@@ -98,20 +97,23 @@ async function seed() {
     "Perfect for casual play",
     "I love coming back to this game after work to relax and unwind.",
     "5",
-    "3"
+    "3",
+    "2"
   );
 
   await createReview(
     "Too difficult for me",
     "The learning curve was too steep and I gave up after a few hours.",
     "2",
-    "1"
+    "1",
+    "2"
   );
 
   await createReview(
     "Changed my perspective on games",
     "This isn't just a game, it's an experience that stays with you.",
     "5",
-    "3"
+    "3",
+    "2"
   );
 }
